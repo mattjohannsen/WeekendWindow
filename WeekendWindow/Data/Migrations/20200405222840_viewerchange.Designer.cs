@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WeekendWindow.Data;
 
 namespace WeekendWindow.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200405222840_viewerchange")]
+    partial class viewerchange
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -48,15 +50,15 @@ namespace WeekendWindow.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "6d548549-a5df-427a-bcd0-abb65d21ce27",
-                            ConcurrencyStamp = "26391df3-d99e-492b-9030-674ecab84481",
+                            Id = "31b8cae7-daec-465d-9001-95916bf1b048",
+                            ConcurrencyStamp = "9428ae5b-36b0-449d-b499-5176dcbe2398",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "4dd857d8-eff7-4141-9175-e180fd5aa8b2",
-                            ConcurrencyStamp = "1a590f56-6ee0-42b4-ad66-820103dc94ce",
+                            Id = "b5aca918-5055-4f52-bc55-e735952e0a5e",
+                            ConcurrencyStamp = "b71a7187-37c3-4c7f-ae13-950697b43ffc",
                             Name = "Viewer",
                             NormalizedName = "VIEWER"
                         });
@@ -241,7 +243,7 @@ namespace WeekendWindow.Data.Migrations
                     b.Property<string>("FirstName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("HomeLocationId")
+                    b.Property<int>("HomeLocationId")
                         .HasColumnType("int");
 
                     b.Property<string>("IdentityUserId")

@@ -2,7 +2,7 @@
 
 namespace WeekendWindow.Data.Migrations
 {
-    public partial class initialweekendwindow : Migration
+    public partial class identity3 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -41,7 +41,12 @@ namespace WeekendWindow.Data.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "2c40beea-a3e6-42e3-9e90-1574d555fabb", "b4a6e2de-a0f4-4cde-8c75-c62eba351211", "Warrior", "WARRIOR" });
+                values: new object[] { "93019a65-1059-49b3-88a8-a969e0dffdae", "104c4c6d-9952-4ba0-a3fa-056ddf823799", "Admin", "ADMIN" });
+
+            migrationBuilder.InsertData(
+                table: "AspNetRoles",
+                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
+                values: new object[] { "8e561532-3e4d-4c7d-a794-6236d11fd944", "d6b247db-a92f-4237-bb21-fac7ddfc3fc6", "Viewer", "VIEWER" });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -49,7 +54,12 @@ namespace WeekendWindow.Data.Migrations
             migrationBuilder.DeleteData(
                 table: "AspNetRoles",
                 keyColumn: "Id",
-                keyValue: "2c40beea-a3e6-42e3-9e90-1574d555fabb");
+                keyValue: "8e561532-3e4d-4c7d-a794-6236d11fd944");
+
+            migrationBuilder.DeleteData(
+                table: "AspNetRoles",
+                keyColumn: "Id",
+                keyValue: "93019a65-1059-49b3-88a8-a969e0dffdae");
 
             migrationBuilder.AlterColumn<string>(
                 name: "Name",

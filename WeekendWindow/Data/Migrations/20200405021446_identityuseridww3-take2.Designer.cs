@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WeekendWindow.Data;
 
 namespace WeekendWindow.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200405021446_identityuseridww3-take2")]
+    partial class identityuseridww3take2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -48,15 +50,15 @@ namespace WeekendWindow.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "6d548549-a5df-427a-bcd0-abb65d21ce27",
-                            ConcurrencyStamp = "26391df3-d99e-492b-9030-674ecab84481",
+                            Id = "2c28fba6-a8c7-4017-8eaa-497ffdea9f6a",
+                            ConcurrencyStamp = "e075d6c1-9c50-4339-87f7-ae75935ad261",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "4dd857d8-eff7-4141-9175-e180fd5aa8b2",
-                            ConcurrencyStamp = "1a590f56-6ee0-42b4-ad66-820103dc94ce",
+                            Id = "a14cdcae-0311-4006-9c98-6ece601a14ef",
+                            ConcurrencyStamp = "2b526ab9-4e23-4a99-b039-f8a0976be6d3",
                             Name = "Viewer",
                             NormalizedName = "VIEWER"
                         });
@@ -241,16 +243,22 @@ namespace WeekendWindow.Data.Migrations
                     b.Property<string>("FirstName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("HomeLocationId")
-                        .HasColumnType("int");
-
                     b.Property<string>("IdentityUserId")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("NotificationDay")
+                    b.Property<string>("ViewerAddress")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ViewerCity")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ViewerState")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ViewerZip")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ViewerId");

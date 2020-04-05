@@ -33,21 +33,18 @@ namespace WeekendWindow
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-                    services.AddIdentity<IdentityUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = false)
+            services.AddIdentity<IdentityUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = false)
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultUI()
                 .AddDefaultTokenProviders();
-                services.AddScoped<ClaimsPrincipal>(s =>
-                    s.GetService<IHttpContextAccessor>().HttpContext.User); 
-                services.AddControllers(config => 
-                { 
-                    config.Filters.Add(typeof(GlobalRouting)); 
-                });
-        }
 
-        private object IdentityRole(Func<object, object> p)
-        {
-            throw new NotImplementedException();
+            services.AddScoped<ClaimsPrincipal>(s => s.GetService<IHttpContextAccessor>().HttpContext.User); services.AddControllers(config => 
+            { 
+                config.Filters.Add(typeof(GlobalRouting)); 
+            });
+
+            services.AddControllersWithViews();
+            services.AddRazorPages();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

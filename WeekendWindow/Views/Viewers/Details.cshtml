@@ -1,14 +1,14 @@
-﻿@model WeekendWindow.Models.Warrior
+﻿@model WeekendWindow.Models.Viewer
 
 @{
     ViewData["Title"] = "Details";
-    Layout = "~/Views/Shared/_LayoutWarrior.cshtml";
+    Layout = "~/Views/Shared/_Layout-Viewers.cshtml";
 }
 
 <h1>Details</h1>
 
 <div>
-    <h4>Warrior</h4>
+    <h4>Viewer</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -30,32 +30,20 @@
             @Html.DisplayFor(model => model.LastName)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Address)
+            @Html.DisplayNameFor(model => model.HomeLocationId)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Address)
+            @Html.DisplayFor(model => model.HomeLocationId)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.City)
+            @Html.DisplayNameFor(model => model.NotificationDay)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.City)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.State)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.State)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Zipcode)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Zipcode)
+            @Html.DisplayFor(model => model.NotificationDay)
         </dd>
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.WarriorId">Edit</a> |
+    <a asp-action="Edit" asp-route-id="@Model.ViewerId">Edit</a> |
     <a asp-action="Index">Back to List</a>
 </div>

@@ -10,8 +10,8 @@ using WeekendWindow.Data;
 namespace WeekendWindow.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200403194647_initialweekendwindow")]
-    partial class initialweekendwindow
+    [Migration("20200405015929_identity3")]
+    partial class identity3
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -50,10 +50,17 @@ namespace WeekendWindow.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "2c40beea-a3e6-42e3-9e90-1574d555fabb",
-                            ConcurrencyStamp = "b4a6e2de-a0f4-4cde-8c75-c62eba351211",
-                            Name = "Warrior",
-                            NormalizedName = "WARRIOR"
+                            Id = "93019a65-1059-49b3-88a8-a969e0dffdae",
+                            ConcurrencyStamp = "104c4c6d-9952-4ba0-a3fa-056ddf823799",
+                            Name = "Admin",
+                            NormalizedName = "ADMIN"
+                        },
+                        new
+                        {
+                            Id = "8e561532-3e4d-4c7d-a794-6236d11fd944",
+                            ConcurrencyStamp = "d6b247db-a92f-4237-bb21-fac7ddfc3fc6",
+                            Name = "Viewer",
+                            NormalizedName = "VIEWER"
                         });
                 });
 
@@ -224,6 +231,36 @@ namespace WeekendWindow.Data.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("WeekendWindow.Models.Viewer", b =>
+                {
+                    b.Property<int>("ViewerId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("FirstName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ViewerAddress")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ViewerCity")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ViewerState")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ViewerZip")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ViewerId");
+
+                    b.ToTable("Viewers");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

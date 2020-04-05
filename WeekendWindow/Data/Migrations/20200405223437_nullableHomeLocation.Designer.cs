@@ -10,8 +10,8 @@ using WeekendWindow.Data;
 namespace WeekendWindow.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200403205302_warriorInit")]
-    partial class warriorInit
+    [Migration("20200405223437_nullableHomeLocation")]
+    partial class nullableHomeLocation
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -50,10 +50,17 @@ namespace WeekendWindow.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "ef65f9b7-eb1e-4654-b9d4-d03f1935f6fc",
-                            ConcurrencyStamp = "32f3c07b-9664-4c72-8109-b7c3cf22f4a9",
-                            Name = "Warrior",
-                            NormalizedName = "WARRIOR"
+                            Id = "6d548549-a5df-427a-bcd0-abb65d21ce27",
+                            ConcurrencyStamp = "26391df3-d99e-492b-9030-674ecab84481",
+                            Name = "Admin",
+                            NormalizedName = "ADMIN"
+                        },
+                        new
+                        {
+                            Id = "4dd857d8-eff7-4141-9175-e180fd5aa8b2",
+                            ConcurrencyStamp = "1a590f56-6ee0-42b4-ad66-820103dc94ce",
+                            Name = "Viewer",
+                            NormalizedName = "VIEWER"
                         });
                 });
 
@@ -226,21 +233,18 @@ namespace WeekendWindow.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("WeekendWindow.Models.Warrior", b =>
+            modelBuilder.Entity("WeekendWindow.Models.Viewer", b =>
                 {
-                    b.Property<int>("WarriorId")
+                    b.Property<int>("ViewerId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Address")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("City")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("FirstName")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("HomeLocationId")
+                        .HasColumnType("int");
 
                     b.Property<string>("IdentityUserId")
                         .HasColumnType("nvarchar(450)");
@@ -248,17 +252,14 @@ namespace WeekendWindow.Data.Migrations
                     b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("State")
+                    b.Property<string>("NotificationDay")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Zipcode")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("WarriorId");
+                    b.HasKey("ViewerId");
 
                     b.HasIndex("IdentityUserId");
 
-                    b.ToTable("Warriors");
+                    b.ToTable("Viewers");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -312,7 +313,7 @@ namespace WeekendWindow.Data.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("WeekendWindow.Models.Warrior", b =>
+            modelBuilder.Entity("WeekendWindow.Models.Viewer", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "IdentityUser")
                         .WithMany()

@@ -11,7 +11,7 @@ namespace WeekendWindow.ActionFilters
     public class GlobalRouting : IActionFilter
     {
         private readonly ClaimsPrincipal _claimsPrincipal;
-        public GlobalRouting(ClaimsPrincipal claimsPrincipal)
+        public GlobalRouting(ClaimsPrincipal claimsPrincipal) 
         { 
             _claimsPrincipal = claimsPrincipal; 
         }
@@ -21,9 +21,13 @@ namespace WeekendWindow.ActionFilters
             var controller = context.RouteData.Values["controller"]; 
             if (controller.Equals("Home")) 
             { 
-                if (_claimsPrincipal.IsInRole("Warrior"))
-                {
-                    context.Result = new RedirectToActionResult("Index", "Warrior", null); 
+                if (_claimsPrincipal.IsInRole("Admin")) 
+                { 
+                    context.Result = new RedirectToActionResult("Index", "Admins", null); 
+                } 
+                else if (_claimsPrincipal.IsInRole("Viewer")) 
+                { 
+                    context.Result = new RedirectToActionResult("Index", "Viewers", null); 
                 } 
             } 
         }
@@ -33,6 +37,4 @@ namespace WeekendWindow.ActionFilters
 
         }
     }
-
-
 }
