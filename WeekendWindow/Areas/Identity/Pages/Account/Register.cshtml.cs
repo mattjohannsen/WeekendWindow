@@ -42,7 +42,7 @@ namespace WeekendWindow.Areas.Identity.Pages.Account
 
         [BindProperty]
         public InputModel Input { get; set; }
-        public Microsoft.AspNetCore.Mvc.Rendering.SelectList Roles { get; set; }
+        public SelectList Roles { get; set; }
 
         public string ReturnUrl { get; set; }
 

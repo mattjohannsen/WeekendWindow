@@ -20,6 +20,8 @@ namespace WeekendWindow.Models
         public string LastName { get; set; }
         public int? HomeLocationId { get; set; }
         public string NotificationDay { get; set; }
+        [NotMapped]
+        public List<DayOfWeek> notificationDays = new List<DayOfWeek>();
 
     }
 }
