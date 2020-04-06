@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WeekendWindow.Data;
 
 namespace WeekendWindow.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200405235144_changeddayofweek")]
+    partial class changeddayofweek
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -48,15 +50,15 @@ namespace WeekendWindow.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "8816c962-7826-4f66-a236-31591f5e0f17",
-                            ConcurrencyStamp = "ea7fb3df-d0d1-4218-a798-b7bcd0f9710f",
+                            Id = "671ddde5-a4ba-4298-b4d4-fad43405cbdb",
+                            ConcurrencyStamp = "30cabfa9-5663-4f7a-af9a-95182706698d",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "ca9b55c5-84b2-4664-9c98-19b3d2b49664",
-                            ConcurrencyStamp = "a0d94bc4-f3ce-4226-ab6b-aee0a7513771",
+                            Id = "3d859fd2-de27-435a-9af4-c0f636951609",
+                            ConcurrencyStamp = "6b1a8ade-c688-44ef-b2d2-27cf7e302839",
                             Name = "Viewer",
                             NormalizedName = "VIEWER"
                         });
@@ -250,8 +252,8 @@ namespace WeekendWindow.Data.Migrations
                     b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("NotificationDay")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("NotificationDay")
+                        .HasColumnType("int");
 
                     b.HasKey("ViewerId");
 
