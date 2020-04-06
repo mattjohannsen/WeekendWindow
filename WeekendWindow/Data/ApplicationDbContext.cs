@@ -4,6 +4,7 @@ using System.Text;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using WeekendWindow.Models;
 
 namespace WeekendWindow.Data
 {
@@ -33,5 +34,7 @@ namespace WeekendWindow.Data
                     }
                 );
 		}
+
+		public DbSet<WeekendWindow.Models.Location> Location { get; set; }
 	}
 }
