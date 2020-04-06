@@ -9,10 +9,10 @@ namespace WeekendWindow.Models
     public class WWindow
     {
         public int WeekendWindowId { get; set; }
-        [ForeignKey("Viewer")]
+        [ForeignKey("WWViewerId")]
         public int WWViewerId { get; set; } //Weekend Window property
         public int ViewerId { get; set; } //Viewer property
-        [ForeignKey("Location")]
+        [ForeignKey("WeekendLocationId")]
         public int WeekendLocationId { get; set; } //Weekend Window property
         public int LocationId { get; set; } //Location property
         public DateTime? SaturdayDate { get; set; }

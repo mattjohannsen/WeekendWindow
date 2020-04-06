@@ -16,7 +16,7 @@ namespace WeekendWindow.Models
         public string LocationName { get; set; }
         public string LocationAddress { get; set; }
         public string LocationCity { get; set; }
-        [ForeignKey("LocationState")]
+        [ForeignKey("LocationStateId")]
         public int LocationStateId { get; set; } //Location property
         public int StateId { get; set; } //State property
         public string LocationZip { get; set; }
