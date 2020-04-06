@@ -17,11 +17,11 @@ namespace WeekendWindow.Models
         public int LocationId { get; set; } //Location property
         public DateTime? SaturdayDate { get; set; }
         public DateTime? SundayDate { get; set; }
-        public int SaturdayWeatherId { get; set; }
-        public int SundayWeatherId { get; set; }
+        public string SaturdayWeather { get; set; }
+        public string SundayWeather { get; set; }
         public int WeekendAttitudeId { get; set; }
         public bool WantLodging { get; set; }
-        public int WeekendLodgingId { get; set; }
+        public int WeekendLodging { get; set; }
         public int TravelRadiusId { get; set; }
 
     }
